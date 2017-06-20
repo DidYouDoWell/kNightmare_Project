@@ -6,39 +6,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-
-	protected ePlayerStateType CurrentState = ePlayerStateType.STATE_IDLE;
-	public ePlayerStateType CURRENT_STATE
-	{
-		get { return CurrentState; }
-	}
-	Animator Anim = null;
-	public Animator ANIMATOR
-	{
-		get
-		{
-			if (Anim == null)
-			{
-				Anim = gameObject.GetComponentInChildren<Animator>();
-			}
-			return Anim;
-		}
-	}
-
-	bool bAttack = false;
-	public bool IS_ATTACK
-	{
-		get { return bAttack; }
-		set { bAttack = value; }
-	}
-
-
-	/// <summary>
-	/// /
-	/// </summary>
-
-
-
 	//Vector3 vec3Dis;
 	Vector3 playerposition;
 	Vector3 preTransform;
@@ -90,7 +57,6 @@ public class Player : MonoBehaviour {
 				if (hit.collider.tag=="Player")
 				{
 					playerOnClicked = true;
-
 					
 
 				}
@@ -100,8 +66,7 @@ public class Player : MonoBehaviour {
 				if (Input.GetMouseButton(0) && Moving == false && playerOnClicked==true)
 			{
 
-				//
-				ProcessCrouch();
+
 
 				heightCorrectedPoint = new Vector3(point.x, transform.position.y, point.z);
 
@@ -128,8 +93,6 @@ public class Player : MonoBehaviour {
 		if ((Input.GetMouseButtonUp(0) || Moving == true) &&playerOnClicked==true)
 		{
 
-			ProcessAttack();
-
 			Moving = true;
 			curTime += Time.deltaTime;
 
@@ -146,7 +109,6 @@ public class Player : MonoBehaviour {
 				Moving = false;
 				curTime = 0;
 				playerOnClicked = false;
-				
 			}
 
 			if(Dis >= limitDis)
@@ -154,7 +116,6 @@ public class Player : MonoBehaviour {
 				Moving = false;
 				curTime = 0;
 				playerOnClicked = false;
-				//ProcessIdle();
 			}
 		}
 		//if (Input.GetMouseButtonUp(0)|| Moving==true)
@@ -180,43 +141,6 @@ public class Player : MonoBehaviour {
 		{
 			Destroy(collision.gameObject);
 		}
-	}
-
-
-	void ChangeAnimation()
-	{
-		if (ANIMATOR == null)
-		{
-			Debug.LogError(gameObject.name + " 에게 Animator가 없습니다.");
-			return;
-		}
-
-		ANIMATOR.SetInteger("State", (int)CurrentState);
-	}
-
-	protected virtual void ProcessIdle()
-	{
-		CurrentState = ePlayerStateType.STATE_IDLE;
-		ChangeAnimation();
-	}
-
-	protected virtual void ProcessCrouch()
-	{
-		CurrentState = ePlayerStateType.STATE_CROUCH;
-		ChangeAnimation();
-	}
-
-	protected virtual void ProcessAttack()
-	{
-		//Target.ThrowEvent(ConstValue.EventKey_SelectSkill, 0);
-		CurrentState = ePlayerStateType.STATE_ATTACK;
-		ChangeAnimation();
-	}
-
-	protected virtual void ProcessDie()
-	{
-		CurrentState = ePlayerStateType.STATE_DEAD;
-		ChangeAnimation();
 	}
 
 
