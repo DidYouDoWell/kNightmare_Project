@@ -146,7 +146,7 @@ public class Player : MonoBehaviour {
 				Moving = false;
 				curTime = 0;
 				playerOnClicked = false;
-				
+				ProcessIdle();
 			}
 
 			if(Dis >= limitDis)
@@ -154,7 +154,7 @@ public class Player : MonoBehaviour {
 				Moving = false;
 				curTime = 0;
 				playerOnClicked = false;
-				//ProcessIdle();
+				ProcessIdle();
 			}
 		}
 		//if (Input.GetMouseButtonUp(0)|| Moving==true)
