@@ -14,15 +14,6 @@ public enum eStateType
     STATE_DEAD
 }
 
-public enum ePlayerStateType
-{
-	STATE_NONE = 0,
-	STATE_IDLE,
-	STATE_ATTACK,
-	STATE_CROUCH,
-	STATE_DEAD
-}
-
 public enum eStatusData
 {
     MAX_HP,
@@ -114,10 +105,4 @@ public enum eSlotType
     SLOT_HELMAT,
     SLOT_GUNTLET,
     SLOT_MAX,
-}
-
-public enum eAIType
-{
-	AI_MELEE,
-	AI_RANGE,
 }
