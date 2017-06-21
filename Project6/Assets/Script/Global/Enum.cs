@@ -116,6 +116,7 @@ public enum eSlotType
     SLOT_MAX,
 }
 
+// AI 관련
 public enum eAIType
 {
 	AI_MELEE,
