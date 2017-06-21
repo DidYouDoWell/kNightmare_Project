@@ -62,12 +62,12 @@ public class AttackAnimation : StateMachineBehaviour
 		//		TargetActor.AI.IS_ATTACK = false;
 		//}
 
-		//if (bIsAttack == false
-		//	&& animatorStateInfo.normalizedTime >= 0.5f)
-		//{
-		//	bIsAttack = true;
-		//	TargetActor.RunSkill();
-		//}
+		if (bIsAttack == false
+			&& animatorStateInfo.normalizedTime >= 0.5f)
+		{
+			bIsAttack = true;
+			TargetPlayer.RunSkill();
+		}
 	}
 
 

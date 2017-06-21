@@ -20,7 +20,7 @@ public class SkillManager : MonoSingleton<SkillManager>
 	{
 		LoadSkillData(ConstValue.SkillDataPath);
 		LoadSkillTemplate(ConstValue.SkillTemplatePath);
-		LoadSkillModel();
+		//LoadSkillModel();
 	}
 
 	void LoadSkillData(string strFilePath)

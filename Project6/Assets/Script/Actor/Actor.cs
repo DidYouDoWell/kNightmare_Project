@@ -57,25 +57,25 @@ public class Actor : BaseObject
 		gameCharacter.TargetComponenet = this;
 		SelfCharacter = gameCharacter;
 
-		//for(int i = 0; 
-		//	i< gameCharacter.CHARACTER_TEMPLATE.LIST_SKILL.Count;
-		//	i++)
-		//{
-		//	SkillData data =
-		//		SkillManager.Instance.GetSkillData(
-		//		gameCharacter.CHARACTER_TEMPLATE.LIST_SKILL[i]);
+		for (int i = 0;
+			i < gameCharacter.CHARACTER_TEMPLATE.LIST_SKILL.Count;
+			i++)
+		{
+			SkillData data =
+				SkillManager.Instance.GetSkillData(
+				gameCharacter.CHARACTER_TEMPLATE.LIST_SKILL[i]);
 
-		//	if (data == null)
-		//	{
-		//		Debug.LogError(
-		//			gameCharacter.CHARACTER_TEMPLATE.LIST_SKILL[i]
-		//			+ " 스킬 키를 찾을수 없습니다.");
-		//	}
-		//	else
-		//		gameCharacter.AddSkill(data);
-		//}
+			if (data == null)
+			{
+				Debug.LogError(
+					gameCharacter.CHARACTER_TEMPLATE.LIST_SKILL[i]
+					+ " 스킬 키를 찾을수 없습니다.");
+			}
+			else
+				gameCharacter.AddSkill(data);
+		}
 
-        //재인이형
+		//재인이형
 		//if(bEnableBoard)//UI(boar)
 		//{
 		//	BaseBoard board = BoardManager.Instance.AddBoard(
@@ -193,13 +193,13 @@ public class Actor : BaseObject
 		SkillData selectSkill = SelfCharacter.SELECT_SKILL;
 		if (selectSkill == null)
 			return;
-        //코루틴을 넣거나 딜레이를 잘 섞어서 스킬을 만듬.
-        // 은기
-		//for(int i = 0; i < selectSkill.SKILL_LIST.Count;i++)
-		//{
-		//	SkillManager.Instance.RunSkill(this, 
-		//		selectSkill.SKILL_LIST[i]);
-		//}
+		//코루틴을 넣거나 딜레이를 잘 섞어서 스킬을 만듬.
+		// 은기
+		for (int i = 0; i < selectSkill.SKILL_LIST.Count; i++)
+		{
+			SkillManager.Instance.RunSkill(this,
+				selectSkill.SKILL_LIST[i]);
+		}
 	}
 
 	private void OnEnable()

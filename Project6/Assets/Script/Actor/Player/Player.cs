@@ -99,7 +99,7 @@ public class Player : Actor {
 				//
 				if (Input.GetMouseButton(0) && Moving == false && playerOnClicked==true)
 			{
-
+				
 				//
 				ProcessCrouch();
 
@@ -179,6 +179,7 @@ public class Player : Actor {
 	{
 		if(collision.gameObject.tag=="Enemy")
 		{
+			
 			Destroy(collision.gameObject);
 		}
 	}
@@ -210,6 +211,7 @@ public class Player : Actor {
 	protected virtual void ProcessAttack()
 	{
 		//Target.ThrowEvent(ConstValue.EventKey_SelectSkill, 0);
+		this.ThrowEvent(ConstValue.EventKey_SelectSkill, 0);
 		CurrentState = ePlayerStateType.STATE_ATTACK;
 		ChangeAnimation();
 	}
