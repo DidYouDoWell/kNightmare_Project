@@ -1,0 +1,79 @@
+Working directory: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\
+
+Loading: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\CHARACTER_TEMPLATE.xlsx
+Parsing: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\CHARACTER_TEMPLATE.xlsx.$$$\Sheet1.csv
+Closing: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\CHARACTER_TEMPLATE.xlsx
+------------------------------------------------------------------------------
+[CHARACTER_TEMPLATE.xlsx(Sheet1): ROW 1]
+Found object mark: '#CHARACTER_TEMPLATE{{}}'
+Parsing Object Object Table...
+Using key index: 1
+
+Loading: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\ITEM_INFO.xlsx
+Parsing: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\ITEM_INFO.xlsx.$$$\Sheet1.csv
+Closing: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\ITEM_INFO.xlsx
+------------------------------------------------------------------------------
+[ITEM_INFO.xlsx(Sheet1): ROW 1]
+Found object mark: '#ITEM_INFO{{}}'
+Parsing Object Object Table...
+Using key index: 1
+
+Loading: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\sample_ko.xlsx
+Parsing: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\sample_ko.xlsx.$$$\Sheet1.csv
+Parsing: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\sample_ko.xlsx.$$$\Sheet2.csv
+Parsing: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\sample_ko.xlsx.$$$\Sheet3.csv
+Closing: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\sample_ko.xlsx
+------------------------------------------------------------------------------
+[sample_ko.xlsx(Sheet1): ROW 3]
+Found object mark: '#init{}'
+Parsing Simple Table...
+Using key index: 1 value index: 2
+------------------------------------------------------------------------------
+[sample_ko.xlsx(Sheet1): ROW 12]
+Found object mark: '#buildings{{}}'
+Parsing Object Object Table...
+Using key index: 1
+------------------------------------------------------------------------------
+[sample_ko.xlsx(Sheet1): ROW 20]
+Found object mark: '#reqcoins{[]}'
+Parsing Object Array Table...
+------------------------------------------------------------------------------
+[sample_ko.xlsx(Sheet1): ROW 30]
+Found object mark: '#shop[{}]'
+Parsing Array Object Table...
+------------------------------------------------------------------------------
+[sample_ko.xlsx(Sheet1): ROW 38]
+Found object mark: '#inventory[{}]'
+Parsing Array Object Table...
+------------------------------------------------------------------------------
+[sample_ko.xlsx(Sheet1): ROW 44]
+Found object mark: '#friends{}'
+Parsing Simple Table...
+Using key index: 1 value index: 2
+
+Loading: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\SKILL_DATA.xlsx
+Parsing: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\SKILL_DATA.xlsx.$$$\Sheet1.csv
+Closing: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\SKILL_DATA.xlsx
+------------------------------------------------------------------------------
+[SKILL_DATA.xlsx(Sheet1): ROW 1]
+Found object mark: '#SKILL_DATA{{}}'
+Parsing Object Object Table...
+Using key index: 1
+
+Loading: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\SKILL_TEMPLATE.xlsx
+Parsing: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\SKILL_TEMPLATE.xlsx.$$$\Sheet1.csv
+Closing: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\SKILL_TEMPLATE.xlsx
+------------------------------------------------------------------------------
+[SKILL_TEMPLATE.xlsx(Sheet1): ROW 1]
+Found object mark: '#SKILL_TEMPLATE{{}}'
+Parsing Object Object Table...
+Using key index: 1
+
+Loading: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\STAGE_INFO.xlsx
+Parsing: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\STAGE_INFO.xlsx.$$$\Sheet1.csv
+Closing: C:\Users\KITRIGAME\Documents\Unity_Project\RPG\Util\STAGE_INFO.xlsx
+------------------------------------------------------------------------------
+[STAGE_INFO.xlsx(Sheet1): ROW 1]
+Found object mark: '#STAGE_INFO{{}}'
+Parsing Object Object Table...
+Using key index: 1

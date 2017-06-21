@@ -17,7 +17,7 @@ public class ActorManager : MonoSingleton<ActorManager>
 
     private void Awake()
     {
-        MonsterPrefabInit();
+      //  MonsterPrefabInit();
     }
 
     void MonsterPrefabInit()
@@ -187,18 +187,18 @@ public class ActorManager : MonoSingleton<ActorManager>
         }
         return nearActor;
     }
-    //-----------------------------------------------
-    // 교준
-    //public Actor PlayerLoad()
-    //{
-    //    GameObject playerPrefab = Resources.Load("Prefabs/"
-    //        + "Actor/"
-    //        + "Player") as GameObject;
+	//-----------------------------------------------
+	//교준
+	public Actor PlayerLoad()
+	{
+		GameObject playerPrefab = Resources.Load("Prefabs/"
+			+ "Actor/"
+			+ "Player") as GameObject;
 
-    //    GameObject go = Instantiate(playerPrefab,
-    //        Vector3.zero,
-    //        Quaternion.identity) as GameObject;
+		GameObject go = Instantiate(playerPrefab,
+			Vector3.zero,
+			Quaternion.identity) as GameObject;
 
-    //    return go.GetComponent<Actor>();
-    //}
+		return go.GetComponent<Actor>();
+	}
 }

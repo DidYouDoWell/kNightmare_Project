@@ -57,23 +57,24 @@ public class Actor : BaseObject
 		gameCharacter.TargetComponenet = this;
 		SelfCharacter = gameCharacter;
 
-		for(int i = 0; 
-			i< gameCharacter.CHARACTER_TEMPLATE.LIST_SKILL.Count;
-			i++)
-		{
-			SkillData data =
-				SkillManager.Instance.GetSkillData(
-				gameCharacter.CHARACTER_TEMPLATE.LIST_SKILL[i]);
+		//for(int i = 0; 
+		//	i< gameCharacter.CHARACTER_TEMPLATE.LIST_SKILL.Count;
+		//	i++)
+		//{
+		//	SkillData data =
+		//		SkillManager.Instance.GetSkillData(
+		//		gameCharacter.CHARACTER_TEMPLATE.LIST_SKILL[i]);
 
-			if (data == null)
-			{
-				Debug.LogError(
-					gameCharacter.CHARACTER_TEMPLATE.LIST_SKILL[i]
-					+ " 스킬 키를 찾을수 없습니다.");
-			}
-			else
-				gameCharacter.AddSkill(data);
-		}
+		//	if (data == null)
+		//	{
+		//		Debug.LogError(
+		//			gameCharacter.CHARACTER_TEMPLATE.LIST_SKILL[i]
+		//			+ " 스킬 키를 찾을수 없습니다.");
+		//	}
+		//	else
+		//		gameCharacter.AddSkill(data);
+		//}
+
         //재인이형
 		//if(bEnableBoard)//UI(boar)
 		//{
@@ -224,7 +225,7 @@ public class Actor : BaseObject
 
         if (ActorManager.Instance != null)
 		{
-			ActorManager.Instance.RemoveActor(this);
+			//ActorManager.Instance.RemoveActor(this);
 		}
 	}
 
