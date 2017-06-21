@@ -5,7 +5,7 @@ using UnityEngine;
 public class NonPlayer : Actor {
 
 
-	public BaseAI ai = null;
+	BaseAI ai = null;
 	public BaseAI AI
 	{ get { return ai; } }
 
@@ -24,6 +24,8 @@ public class NonPlayer : Actor {
 				}
 				break;
 		}
+
+		ai.Target = this;
 	}
 
 	protected override void Update()

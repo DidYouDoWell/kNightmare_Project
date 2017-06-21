@@ -13,7 +13,10 @@ public class NormalEnemy : BaseAI {
 		{
 			SkillData sData =
 				Target.GetData(ConstValue.ActorData_SkillData, 0) as SkillData;
-			float attackRange = sData.RANGE;
+			float attackRange = 1f;
+
+			if (sData != null)
+				attackRange = sData.RANGE;
 
 			float distance = Vector2.Distance(
 				targetObject.SelfTransform.position,
