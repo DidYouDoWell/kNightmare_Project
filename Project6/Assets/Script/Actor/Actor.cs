@@ -23,6 +23,8 @@ public class Actor : BaseObject
 
 	[SerializeField]
 	string TemplateKey = string.Empty;
+	public string TEMPLATE_KEY
+	{ get { return TemplateKey; } }
 
 	GameCharacter SelfCharacter = null;
 	public GameCharacter SELF_CHARACTER

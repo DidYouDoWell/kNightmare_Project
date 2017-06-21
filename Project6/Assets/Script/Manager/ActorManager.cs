@@ -12,8 +12,8 @@ public class ActorManager : MonoSingleton<ActorManager>
         new Dictionary<eTeamType, List<Actor>>();
 
     // 몬스터 프리팹 관리
-    Dictionary<eMonsterType, GameObject> DicMonsterPrefab =
-        new Dictionary<eMonsterType, GameObject>();
+    Dictionary<eEnemyType, GameObject> DicMonsterPrefab =
+        new Dictionary<eEnemyType, GameObject>();
 
     private void Awake()
     {
@@ -22,23 +22,23 @@ public class ActorManager : MonoSingleton<ActorManager>
 
     void MonsterPrefabInit()
     {
-        for (int i = 0; i < (int)eMonsterType.MAX; i++)
+        for (int i = 0; i < (int)eEnemyType.MAX; i++)
         {
             GameObject go = Resources.Load("Prefabs/" +
-                ((eMonsterType)i).ToString("F")) as GameObject;
+                ((eEnemyType)i).ToString("F")) as GameObject;
             if (go == null)
             {
-                Debug.LogError(((eMonsterType)i).ToString("F") +
+                Debug.LogError(((eEnemyType)i).ToString("F") +
                     " 로드 실패 ");
             }
             else
             {
-                DicMonsterPrefab.Add((eMonsterType)i, go);
+                DicMonsterPrefab.Add((eEnemyType)i, go);
             }
         }
     }
 
-    public GameObject GetMonsterPrefab(eMonsterType type)
+    public GameObject GetMonsterPrefab(eEnemyType type)
     {
         if (DicMonsterPrefab.ContainsKey(type) == true)
         {

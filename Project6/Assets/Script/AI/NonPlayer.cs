@@ -9,10 +9,46 @@ public class NonPlayer : Actor {
 	public BaseAI AI
 	{ get { return ai; } }
 
-	bool IsInvincibility = false;
-	public bool INVINCIBILITY
+	private void Start()
 	{
-		get { return IsInvincibility; }
-		set { IsInvincibility = value; }
+		switch (TEMPLATE_KEY)
+		{
+			case "ENEMY_1":
+				{
+					AiSetting(eAIType.NormalEnemy);
+				}
+				break;
+			case "ENEMY_2":
+				{
+					AiSetting(eAIType.NormalEnemy);
+				}
+				break;
+		}
+	}
+
+	protected override void Update()
+	{
+		AI.UpdateAI();
+		if (AI.END)
+		{
+			Destroy(SelfObject);
+		}
+
+		base.Update();
+	}
+
+	void AiSetting(eAIType aitype)
+	{
+		GameObject aiObject = new GameObject();
+		aiObject.name = aitype.ToString();
+		switch (aitype)
+		{
+			case eAIType.NormalEnemy:
+				{
+					ai = aiObject.AddComponent<NormalEnemy>();
+				}
+				break;
+		}
+		aiObject.transform.SetParent(SelfTransform);
 	}
 }

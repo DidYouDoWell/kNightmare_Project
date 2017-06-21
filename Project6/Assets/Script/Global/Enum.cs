@@ -46,11 +46,10 @@ public enum eRegeneratorType
     TRIGGER_EVENT,
 }
 
-public enum eMonsterType
+public enum eEnemyType
 {
-    A_Monster,
-    B_Monster,
-    C_Monster,
+    A_Enemy,
+	B_Enemy,
     MAX,
 }
 
@@ -119,6 +118,6 @@ public enum eSlotType
 // AI 관련
 public enum eAIType
 {
-	AI_MELEE,
-	AI_RANGE,
+	NormalEnemy,
+	MAX,
 }
