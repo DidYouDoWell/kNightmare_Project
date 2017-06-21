@@ -148,28 +148,28 @@ public class SkillManager : MonoSingleton<SkillManager>
 		GameObject skillObject = new GameObject();
 
 		Transform parentTransform = null;
-        //은기 주력으로 수정해야 할 부분
-        //switch (skillTemplate.SKILL_TYPE)
-        //{
-        //          
-        //	case eSkillTemplateType.TARGET_ATTACK:
-        //		makeSkill = skillObject.AddComponent<MeleeSkill>();
-        //		parentTransform = owner.SelfTransform;
-        //		break;
-        //	case eSkillTemplateType.RANGE_ATTACK:
-        //		{
-        //			makeSkill = skillObject.AddComponent<RangeSkill>();
-        //                  //parentTransform = owner.SelfTransform;
-        //                  parentTransform = owner.FindInChild("FirePos");
+		//은기 주력으로 수정해야 할 부분
+		switch (skillTemplate.SKILL_TYPE)
+		{
+
+			case eSkillTemplateType.TARGET_ATTACK:
+				makeSkill = skillObject.AddComponent<MeleeSkill>();
+				parentTransform = owner.SelfTransform;
+				break;
+			//case eSkillTemplateType.RANGE_ATTACK:
+			//	{
+			//		makeSkill = skillObject.AddComponent<RangeSkill>();
+			//		//parentTransform = owner.SelfTransform;
+			//		parentTransform = owner.FindInChild("FirePos");
 
 
-        //    //              makeSkill.ThrowEvent(ConstValue.EventKey_SelectModel,
-        //				//GetModel(eSkillModelType.BOX));
-        //		}
-        //		break;
-        //}
+			//		//              makeSkill.ThrowEvent(ConstValue.EventKey_SelectModel,
+			//		//GetModel(eSkillModelType.BOX));
+			//	}
+			//	break;
+		}
 
-        skillObject.name = skillTemplate.SKILL_TYPE.ToString();
+		skillObject.name = skillTemplate.SKILL_TYPE.ToString();
 
 		if(makeSkill != null)
 		{

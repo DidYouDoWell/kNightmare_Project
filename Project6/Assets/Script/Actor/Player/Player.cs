@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Player : Actor {
 
-
+	//BaseObject TargetObject;
 	protected ePlayerStateType CurrentState = ePlayerStateType.STATE_IDLE;
 	public ePlayerStateType CURRENT_STATE
 	{
@@ -175,14 +175,26 @@ public class Player : Actor {
 
 	}
 
-	private void OnCollisionEnter(Collision collision)
+	private void OnTriggerEnter(Collider other)
 	{
-		if(collision.gameObject.tag=="Enemy")
+		if (other.gameObject.tag == "Enemy")
 		{
-			
-			Destroy(collision.gameObject);
+			Enemy TargetEnemy =  other.gameObject.GetComponent<Enemy>();
+			ThrowEvent(ConstValue.ActorData_SetTarget, TargetEnemy);
+			//Destroy(other.gameObject);
 		}
 	}
+
+
+
+	//private void OnCollisionEnter(Collision collision)
+	//{
+	//	if(collision.gameObject.tag=="Enemy")
+	//	{
+	//		Target.ThrowEvent(ConstValue.ActorData_SetTarget,	collision.gameObject);
+	//		Destroy(collision.gameObject);
+	//	}
+	//}
 
 
 	void ChangeAnimation()
