@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent (typeof(PlayerController))]
 
-public class Player : MonoBehaviour {
+public class Player : Actor {
 
 
 	protected ePlayerStateType CurrentState = ePlayerStateType.STATE_IDLE;

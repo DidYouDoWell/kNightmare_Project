@@ -67,7 +67,6 @@ public class NormalEnemy : BaseAI {
 	protected override IEnumerator Attack()
 	{
 		yield return new WaitForEndOfFrame();
-		SelfComponent<NonPlayer>().INVINCIBILITY = true;
 		while(IS_ATTACK)
 		{
 			if (OBJECT_STATE == eBaseObjectState.STATE_DIE)
@@ -75,7 +74,6 @@ public class NormalEnemy : BaseAI {
 			yield return new WaitForEndOfFrame();
 		}
 		AddNextAI(eStateType.STATE_IDLE);
-		SelfComponent<NonPlayer>().INVINCIBILITY = false;
 
 		yield return StartCoroutine(base.Attack());
 	}

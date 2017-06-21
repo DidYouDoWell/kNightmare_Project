@@ -12,33 +12,33 @@ public class ActorManager : MonoSingleton<ActorManager>
         new Dictionary<eTeamType, List<Actor>>();
 
     // 몬스터 프리팹 관리
-    Dictionary<eMonsterType, GameObject> DicMonsterPrefab =
-        new Dictionary<eMonsterType, GameObject>();
+    Dictionary<eEnemyType, GameObject> DicMonsterPrefab =
+        new Dictionary<eEnemyType, GameObject>();
 
     private void Awake()
     {
-        MonsterPrefabInit();
+      //  MonsterPrefabInit();
     }
 
     void MonsterPrefabInit()
     {
-        for (int i = 0; i < (int)eMonsterType.MAX; i++)
+        for (int i = 0; i < (int)eEnemyType.MAX; i++)
         {
             GameObject go = Resources.Load("Prefabs/" +
-                ((eMonsterType)i).ToString("F")) as GameObject;
+                ((eEnemyType)i).ToString("F")) as GameObject;
             if (go == null)
             {
-                Debug.LogError(((eMonsterType)i).ToString("F") +
+                Debug.LogError(((eEnemyType)i).ToString("F") +
                     " 로드 실패 ");
             }
             else
             {
-                DicMonsterPrefab.Add((eMonsterType)i, go);
+                DicMonsterPrefab.Add((eEnemyType)i, go);
             }
         }
     }
 
-    public GameObject GetMonsterPrefab(eMonsterType type)
+    public GameObject GetMonsterPrefab(eEnemyType type)
     {
         if (DicMonsterPrefab.ContainsKey(type) == true)
         {
@@ -187,18 +187,18 @@ public class ActorManager : MonoSingleton<ActorManager>
         }
         return nearActor;
     }
-    //-----------------------------------------------
-    // 교준
-    //public Actor PlayerLoad()
-    //{
-    //    GameObject playerPrefab = Resources.Load("Prefabs/"
-    //        + "Actor/"
-    //        + "Player") as GameObject;
+	//-----------------------------------------------
+	//교준
+	public Actor PlayerLoad()
+	{
+		GameObject playerPrefab = Resources.Load("Prefabs/"
+			+ "Actor/"
+			+ "Player") as GameObject;
 
-    //    GameObject go = Instantiate(playerPrefab,
-    //        Vector3.zero,
-    //        Quaternion.identity) as GameObject;
+		GameObject go = Instantiate(playerPrefab,
+			Vector3.zero,
+			Quaternion.identity) as GameObject;
 
-    //    return go.GetComponent<Actor>();
-    //}
+		return go.GetComponent<Actor>();
+	}
 }
