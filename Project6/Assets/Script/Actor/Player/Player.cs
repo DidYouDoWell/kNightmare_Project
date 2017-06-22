@@ -125,6 +125,7 @@ public class Player : Actor {
 		}
 
 
+
 		if ((Input.GetMouseButtonUp(0) || Moving == true) &&playerOnClicked==true)
 		{
 
@@ -175,15 +176,19 @@ public class Player : Actor {
 
 	}
 
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.gameObject.tag == "Enemy")
-		{
-			Enemy TargetEnemy =  other.gameObject.GetComponent<Enemy>();
-			ThrowEvent(ConstValue.ActorData_SetTarget, TargetEnemy);
-			//Destroy(other.gameObject);
-		}
-	}
+	//!!
+	//private void OnTriggerEnter(Collider other)
+	//{
+	//	if (other.gameObject.tag == "Enemy")
+	//	{
+	//		Enemy TargetEnemy =  other.gameObject.GetComponent<Enemy>();
+	//		ThrowEvent(ConstValue.ActorData_SetTarget, TargetEnemy);
+
+	//		//스킬이 생성될 때 타켓을 정해주는데, throw이벤트로 타겟을 정해주는 것은 그 후임.
+	//		SkillManager.Instance.makeSkill.TARGET = SkillManager.Instance.makeSkill.OWNER.GetData(ConstValue.ActorData_GetTarget) as BaseObject;
+	//		//Destroy(other.gameObject);
+	//	}
+	//}
 
 
 

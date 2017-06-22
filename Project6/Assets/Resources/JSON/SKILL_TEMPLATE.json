@@ -3,8 +3,8 @@
 		"MELEE_A_1": {
 			"SKILL_TYPE": 0,
 			"RANGE_TYPE": 0,
-			"RANGE_DATA_1": 2,
-			"RANGE_DATA_2": 3,
+			"RANGE_DATA_1": 0.5,
+			"RANGE_DATA_2": 1.4,
 			"MAX_HP": 0,
 			"ATTACK": 5,
 			"DEFFENCE": 0

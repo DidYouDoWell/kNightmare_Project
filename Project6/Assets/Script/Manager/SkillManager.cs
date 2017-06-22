@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class SkillManager : MonoSingleton<SkillManager>
 {
+	public BaseSkill makeSkill = null;
+	Transform parentTransform = null;
+
 	Dictionary<BaseObject, List<BaseSkill>> DicUseSkill
 		= new Dictionary<BaseObject, List<BaseSkill>>();
 
@@ -144,10 +147,12 @@ public class SkillManager : MonoSingleton<SkillManager>
 	BaseSkill CreateSkill(
 		BaseObject owner, SkillTemplate skillTemplate)
 	{
-		BaseSkill makeSkill = null;
+		//BaseSkill makeSkill = null;
+		makeSkill = null;
 		GameObject skillObject = new GameObject();
 
-		Transform parentTransform = null;
+		//Transform parentTransform = null;
+		 parentTransform = null;
 		//은기 주력으로 수정해야 할 부분
 		switch (skillTemplate.SKILL_TYPE)
 		{
@@ -156,6 +161,7 @@ public class SkillManager : MonoSingleton<SkillManager>
 				makeSkill = skillObject.AddComponent<MeleeSkill>();
 				parentTransform = owner.SelfTransform;
 				break;
+
 			//case eSkillTemplateType.RANGE_ATTACK:
 			//	{
 			//		makeSkill = skillObject.AddComponent<RangeSkill>();
@@ -171,10 +177,13 @@ public class SkillManager : MonoSingleton<SkillManager>
 
 		skillObject.name = skillTemplate.SKILL_TYPE.ToString();
 
-		if(makeSkill != null)
+		skillObject.transform.localScale = parentTransform.localScale;
+
+		if (makeSkill != null)
 		{
 			makeSkill.transform.position = parentTransform.position;
 			makeSkill.transform.rotation = parentTransform.rotation;
+			//
 
 			makeSkill.OWNER = owner;
 			makeSkill.SKILL_TEMPLATE = skillTemplate;
@@ -186,13 +195,14 @@ public class SkillManager : MonoSingleton<SkillManager>
 
 		switch (skillTemplate.RANGE_TYPE)
 		{
+			//skillTemplate	
 			case eSkillAttackRangeType.RANGE_BOX:
 				{
 					BoxCollider collider = skillObject.AddComponent<BoxCollider>();
 					collider.size = new Vector3(skillTemplate.RANGE_DATA_1,
 						1, skillTemplate.RANGE_DATA_2);
 					collider.center = new Vector3(0, 0,
-						skillTemplate.RANGE_DATA_2 * 0.5f);
+						skillTemplate.RANGE_DATA_2);
 					collider.isTrigger = true;
 				}
 				break;
@@ -230,8 +240,18 @@ public class SkillManager : MonoSingleton<SkillManager>
 				}
 			}
 		}
-	}
-    public void ClearSkill()
+
+		//추가 170622 am10:13
+		if (makeSkill != null)
+		{
+			makeSkill.transform.position = parentTransform.position;
+			makeSkill.transform.rotation = parentTransform.rotation;
+			//
+		}
+
+
+		}
+		public void ClearSkill()
     {
         foreach (KeyValuePair<BaseObject, List<BaseSkill>> pair
             in DicUseSkill)
