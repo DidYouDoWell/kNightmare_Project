@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Title : MonoBehaviour
 {
-	UIButton StartBtn;
-	UIButton ExitBtn;
+	UIButton StartBtn = null;
+	UIButton ExitBtn = null;
 	
 	void Start ()
 	{
@@ -14,17 +15,19 @@ public class Title : MonoBehaviour
 
 		EventDelegate.Add(StartBtn.onClick, () =>
 		{
-			print("StartButton is OK.");
-			//LoadScene("SCENE_LOBBY");
+			//버튼 기능 삽입.
+			//print("StartButton is OK.");
+			SceneManager.LoadScene("Lobby");
 		}
-			);
+		);
 
 		EventDelegate.Add(ExitBtn.onClick, () =>
 		{
+			//버튼 기능 삽입.
 			print("ExitButton is OK.");
 			//return;
 		}
-			);
+		);
 	}
 	
 	void Update ()
