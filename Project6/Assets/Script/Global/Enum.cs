@@ -122,3 +122,16 @@ public enum eAIType
 	AI_MELEE,
 	AI_RANGE,
 }
+
+public enum STEP
+{
+
+    NONE = -1,
+
+    IDLE = 0,       // 대기 중.
+    DRAWING,        // 라인 그리는 중 （드래그 중）.
+    DRAWED,         // 라인 그리기 종료. 
+    CREATED,        // 도로 모델이 생성됨.
+
+    NUM,
+};

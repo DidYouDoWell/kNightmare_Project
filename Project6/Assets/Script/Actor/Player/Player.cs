@@ -53,12 +53,24 @@ public class Player : MonoBehaviour {
 	Camera viewCamera;
 	Vector3 heightCorrectedPoint;
 	bool Moving=false;
+    //은기 소스 추가구문
+    public float Velocity = 0.0f;
+    public DrawTimeSkill DrawSkill = null;
+    private Vector3 NextPosition = Vector3.zero;
+    private int NextPositionNum = 0;
 
-	// Use this for initialization
-	void Start () {
-		controller = GetComponent<PlayerController>();
-		viewCamera = Camera.main;
-	}
+    // Use this for initialization
+    void Start () {
+
+        controller = GetComponent<PlayerController>();
+
+        viewCamera = Camera.main;
+        //은기 소스 추가구문
+        Velocity = 3.0f;
+        NextPositionNum = 0;
+        //DrawSkill = GameObject.FindGameObjectWithTag("Skill").GetComponent<DrawTimeSkill>();
+
+    }
 
 	// Update is called once per frame
 	void Update() {
@@ -110,7 +122,7 @@ public class Player : MonoBehaviour {
 				//con = vec3Dis.normalized * moveSpeed;
 
 
-				Debug.Log(heightCorrectedPoint);
+				//Debug.Log(heightCorrectedPoint);
 				controller.LookAt(heightCorrectedPoint);
 
 				preTransform = transform.position;
@@ -124,56 +136,77 @@ public class Player : MonoBehaviour {
 
 		}
 
-
-		if ((Input.GetMouseButtonUp(0) || Moving == true) &&playerOnClicked==true)
-		{
+        if (((Input.GetMouseButtonUp(0) || Moving == true) && playerOnClicked == true)
+            && GameManager.Instance.IS_START_SKILL == false)// 교준아 여기 조건 바꿨으니까 확인
+        //if ((Input.GetMouseButtonUp(0) || Moving == true) &&playerOnClicked==true)
+        {
 
 			ProcessAttack();
+            Moving = true;
 
-			Moving = true;
-			curTime += Time.deltaTime;
+            curTime += Time.deltaTime;
 
 			//움직이는 속도를 일정하게 할 것인가?
-			playerposition= Vector3.MoveTowards(preTransform, heightCorrectedPoint, limitDis* curTime* 3f);
+			playerposition= Vector3.MoveTowards(preTransform, heightCorrectedPoint, limitDis* curTime* Velocity);
 			//playerposition = Vector3.Lerp(playerposition, heightCorrectedPoint, curTime*MoveSpeed );
 
 			transform.position=playerposition;
 
 			Dis = Vector3.Distance(preTransform, playerposition);
 
-			if (transform.position == heightCorrectedPoint)
-			{
-				Moving = false;
-				curTime = 0;
-				playerOnClicked = false;
-				ProcessIdle();
 
-			}
 
-			if(Dis >= limitDis)
-			{
-				Moving = false;
-				curTime = 0;
-				playerOnClicked = false;
-				ProcessIdle();
-			}
-		}
-		//if (Input.GetMouseButtonUp(0)|| Moving==true)
-		//{
-		//	Moving = true;
-		//	Debug.Log("Move!");
+            if (transform.position == heightCorrectedPoint)
+            {
+                Moving = false;
+                curTime = 0;
+                playerOnClicked = false;
+                ProcessIdle();
 
-		//	Vector3 ContmoveVelocity = heightCorrectedPoint.normalized * moveSpeed;
-		//	controller.Move(ContmoveVelocity);
+            }
 
-		//	if(controller.transform.position== heightCorrectedPoint)
-		//	{
-		//		Moving = false;
-		//	}
-		//}
-		
+            if (Dis >= limitDis)
+            {
+                Moving = false;
+                curTime = 0;
+                playerOnClicked = false;
+                ProcessIdle();
+            }
+        }
 
-	}
+        else if (GameManager.Instance.IS_START_SKILL == true)
+        {
+            //DrawSkill.DrawReal();
+            ProcessAttack();
+            transform.position = DrawSkill.positions[NextPositionNum];
+
+
+            if (DrawSkill.position_num <= NextPositionNum)
+            {
+                GameManager.Instance.IS_START_SKILL = false;
+                GameManager.Instance.SkillTimeCheck = 0.0f;
+                curTime = 0;
+                ProcessIdle();
+                NextPositionNum = 0;
+                DrawSkill.position_num = 0;
+            }
+            NextPositionNum++;
+        }
+        //if (Input.GetMouseButtonUp(0)|| Moving==true)
+        //{
+        //	Moving = true;
+        //	Debug.Log("Move!");
+
+            //	Vector3 ContmoveVelocity = heightCorrectedPoint.normalized * moveSpeed;
+            //	controller.Move(ContmoveVelocity);
+
+            //	if(controller.transform.position== heightCorrectedPoint)
+            //	{
+            //		Moving = false;
+            //	}
+            //}
+
+    }
 
 	private void OnCollisionEnter(Collision collision)
 	{

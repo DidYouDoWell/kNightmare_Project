@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConstValue
+public static class ConstValue
 {
     public const string CharacterTemplatePath =
         "JSON/CHARACTER_TEMPLATE";
@@ -41,4 +41,7 @@ public class ConstValue
     public const string UI_PATH_Damage = "Prefabs/UI/Damage_Board";
 
     public const string LocalSave_ItemInstance = "ITEM_INSTANCE";
+
+    //은기 - 타임스킬 관련 플레이어 수정 부분.
+    public const bool _Hong_Time_Skill_Player_2017_06_22 = true;
 }
